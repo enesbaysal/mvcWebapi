@@ -1,0 +1,40 @@
+﻿@model IEnumerable<mvcWebapi.Models.Roles>
+
+@{
+    ViewBag.Title = "RolesListe";
+}
+
+<h2>Rol Listesi</h2>
+
+<p>
+    @Html.ActionLink("Rol Ekle", "RolesCreate")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Rol ID
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rolAdi)
+        </th>
+        <th>Sil</th>
+    </tr>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rolAdi)
+            </td>
+            <td>
+           
+                <a href="/Role/RolesListe/" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

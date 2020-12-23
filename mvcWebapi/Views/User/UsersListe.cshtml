@@ -1,0 +1,59 @@
+﻿@model IEnumerable<mvcWebapi.Models.Users>
+
+@{
+    ViewBag.Title = "UsersListe";
+}
+
+<h2>Kullanıcı Listesi</h2>
+
+<p>
+    @Html.ActionLink("Kullanıcı Ekle", "UsersCreate")
+</p>
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Kullanıcı ID
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rolAd)
+        </th>
+        <th>Sil :</th>
+    </tr>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rolAd)
+            </td>
+            
+            <td><a href="/User/UsersListe/@item.Id" class="btn btn-danger">Sil</a></td>
+            @*@Html.ActionLink("Delete", "UsersListe", new { /* id=item.PrimaryKey */ })*@
+           
+        </tr>
+        }
+    </tbody>
+</table>
